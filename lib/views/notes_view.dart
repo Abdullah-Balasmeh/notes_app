@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:notesapp/widgets/add_button.dart';
 import 'package:notesapp/widgets/notesview_body.dart';
 
 class NotesViews extends StatelessWidget {
@@ -10,7 +11,16 @@ class NotesViews extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
           backgroundColor: const Color(0xff2E2E2E),
-          onPressed: () {},
+          onPressed: () {
+            showModalBottomSheet(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16)),
+              context: context,
+              builder: (context) {
+                return const AddButton();
+              },
+            );
+          },
           child: const Icon(
             FontAwesomeIcons.plus,
             color: Colors.white70,

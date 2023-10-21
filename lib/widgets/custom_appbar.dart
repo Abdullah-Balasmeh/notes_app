@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:notesapp/widgets/cutom_search_icon.dart';
+import 'package:notesapp/widgets/cutom_icon.dart';
 
 class CutsomAppBar extends StatelessWidget {
-  const CutsomAppBar({super.key});
+  const CutsomAppBar({super.key, required this.title, required this.icon});
+  final String title;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
         Text(
-          'Notes',
-          style: TextStyle(
+          title,
+          style: const TextStyle(
             color: Colors.white70,
             fontSize: 32,
           ),
         ),
-        Spacer(),
-        CustomSearchIcon()
+        const Spacer(),
+        CustomIcon(
+          icon: icon,
+        )
       ],
     );
   }

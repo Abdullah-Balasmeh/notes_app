@@ -14,10 +14,17 @@ class NotesViewsBody extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 55,
+            height: 70,
           ),
-          CutsomAppBar(),
-          Expanded(child: NotesListView()),
+          CutsomAppBar(
+            title: 'Notes',
+            icon: Icons.search,
+          ),
+          Expanded(
+              child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 16),
+            child: NotesListView(),
+          )),
         ],
       ),
     );
