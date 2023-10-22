@@ -11,24 +11,22 @@ class AddButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: SingleChildScrollView(
-        child: BlocConsumer<AddNoteCubit, AddNoteState>(
-          listener: (context, state) {
-            if (state is AddNoteSucess) {
-              Navigator.pop(context);
-            }
-            if (state is AddNoteFaliure) {
-              // ignore: avoid_print
-              print('Failed to add ${state.errorMessage}');
-            }
-          },
-          builder: (context, state) {
-            return ModalProgressHUD(
-              inAsyncCall: state is AddNoteLoding ? true : false,
-              child: const AddNoteForm(),
-            );
-          },
-        ),
+      child: BlocConsumer<AddNoteCubit, AddNoteState>(
+        listener: (context, state) {
+          if (state is AddNoteFaliure) {
+            // ignore: avoid_print
+            print('Failed to add ${state.errorMessage}');
+          }
+          if (state is AddNoteSucess) {
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return ModalProgressHUD(
+            inAsyncCall: state is AddNoteLoding ? true : false,
+            child: const SingleChildScrollView(child: AddNoteForm()),
+          );
+        },
       ),
     );
   }
