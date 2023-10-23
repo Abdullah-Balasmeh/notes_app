@@ -7,14 +7,14 @@ final class NotesInitial extends NotesState {}
 
 final class NotesLoding extends NotesState {}
 
-final class NoteSsuccess extends NotesState {
+final class NotesSuccess extends NotesState {
   final List<NoteModel> note;
 
-  NoteSsuccess(this.note);
+  NotesSuccess(this.note);
 }
 
-final class NotesFailuer extends NotesState {
+final class NotesFaliure extends NotesState {
   final String errorMessage;
 
-  NotesFailuer(this.errorMessage);
+  NotesFaliure(this.errorMessage);
 }
