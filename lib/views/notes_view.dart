@@ -12,7 +12,7 @@ class NotesViews extends StatelessWidget {
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(right: 10),
         child: FloatingActionButton(
-            backgroundColor: const Color(0xff2E2E2E),
+            backgroundColor: Colors.white70,
             onPressed: () {
               showModalBottomSheet(
                 isScrollControlled: true,
@@ -26,7 +26,7 @@ class NotesViews extends StatelessWidget {
             },
             child: const Icon(
               FontAwesomeIcons.plus,
-              color: Colors.white70,
+              color: Color(0xff2E2E2E),
             )),
       ),
       body: const NotesViewsBody(),
