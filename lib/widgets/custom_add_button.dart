@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key, this.onTap, this.buttonType});
+  const CustomButton(
+      {super.key, this.onTap, this.buttonType, this.isLoding = false});
   final String? buttonType;
   final void Function()? onTap;
+  final bool isLoding;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +21,17 @@ class CustomButton extends StatelessWidget {
         ),
         height: 60,
         width: double.infinity,
-        child: Text(
-          buttonType!,
-          style: const TextStyle(
-              color: Color(0xff2E2E2E),
-              fontSize: 25,
-              fontWeight: FontWeight.bold),
-        ),
+        child: isLoding
+            ? const CircularProgressIndicator(
+                color: Color(0xff2E2E2E),
+              )
+            : Text(
+                buttonType!,
+                style: const TextStyle(
+                    color: Color(0xff2E2E2E),
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
+              ),
       ),
     );
   }
