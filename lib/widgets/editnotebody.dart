@@ -16,6 +16,13 @@ class EditNoteViewBody extends StatefulWidget {
 
 class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   String? title, content;
+  Widget? appBarTitle = const Text(
+    'Edit Note',
+    style: TextStyle(
+      color: Colors.white70,
+      fontSize: 32,
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,7 +40,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
               BlocProvider.of<NotesCubit>(context).fetchAllNotes();
               Navigator.pop(context);
             },
-            title: 'Edit Note',
+            appBarTitle: appBarTitle,
             icon: Icons.check,
           ),
           const SizedBox(
