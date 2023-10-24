@@ -39,6 +39,7 @@ class _NotesViewsBodyState extends State<NotesViewsBody> {
             height: 70,
           ),
           CutsomAppBar(
+            icon: cIcon,
             appBarTitle: appBarTitle,
             onPressed: () {
               setState(() {
@@ -78,7 +79,6 @@ class _NotesViewsBodyState extends State<NotesViewsBody> {
                 }
               });
             },
-            icon: cIcon,
           ),
           const Expanded(
               child: Padding(
@@ -88,14 +88,5 @@ class _NotesViewsBodyState extends State<NotesViewsBody> {
         ],
       ),
     );
-  }
-}
-
-class SearchBar extends StatelessWidget {
-  const SearchBar({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const SearchBar();
   }
 }
